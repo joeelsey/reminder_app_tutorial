@@ -1,0 +1,19 @@
+{
+  "name": "reminder_app_tutorial",
+  "version": "1.0.0",
+  "description": "Another excuse to dive into ember.  This time with node and twilio.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joeelsey/reminder_app_tutorial.git"
+  },
+  "author": "je",
+  "license": "mit",
+  "bugs": {
+    "url": "https://github.com/joeelsey/reminder_app_tutorial/issues"
+  },
+  "homepage": "https://github.com/joeelsey/reminder_app_tutorial"
+}
