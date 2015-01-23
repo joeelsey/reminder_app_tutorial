@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/joeelsey/reminder_app_tutorial",
   "dependencies": {
+    "body-parser": "^1.10.2",
     "ejs": "^2.2.2",
     "express": "^4.11.1",
     "express-promise": "^0.4.0",

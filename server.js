@@ -2,8 +2,6 @@
 
 var express = require('express');
 var app = express();
-var moment = require('moment');
-var mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL || 'mongod://localhost/reminder_dev');
 
