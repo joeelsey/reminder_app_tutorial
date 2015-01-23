@@ -7,4 +7,46 @@ module.exports = function(app) {
   app.get('/', function(req, res) {
     res.json('Hello World');
   });
+
+  app.get('/index', function(req, res) {
+    res.render('index.html');
+  });
+
+  app.post('/timers', function(req, res) {
+    var reminder = new Reminder();
+    reminder.title = req.body.timer.title;
+    reminder.end = new Date(req.body.timer.end);
+    reminder.save(function(err, data) {
+      if (err) return res.status(500).send(err);
+      if (!data) return res.send({msg: 'data did not save'});
+      console.log('saved!');
+    });
+    res.json({'timer': reminder});
+  });
+
+  app.put('/timers/:id', function(req, res) {
+    Reminder.findById({_id: req.params.id}, function(err, reminder) {
+      if (err) return res.status(500).send(err);
+      if (!reminder) return res.send({msg: 'no reminder found'});
+
+      reminder.title = req.body.timer.title;
+      reminder.isCompleted = req.body.timer.isCompleted;
+      reminder.end = req.body.time.end;
+      reminder.save(function(err, data) {
+        if (err) return res.status(500).send(err);
+        if (!data) return res.send({msg: 'data did not save'});
+        console.log('saved!')
+      });
+      res.json({'timer': reminder});
+    });
+  });
+
+  app.delete('/timers/:id', function(req, res) {
+    Reminder.findById({_id: req.params.id}, function(err, reminder) {
+      if (err) return res.status(500).send(err);
+      if (!reminder) return res.send({msg: 'no reminder found'});
+      res.json({msg: 'reminder deleted'});
+    });
+  });
+
 };
