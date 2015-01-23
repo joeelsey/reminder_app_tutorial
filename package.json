@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/joeelsey/reminder_app_tutorial/issues"
   },
-  "homepage": "https://github.com/joeelsey/reminder_app_tutorial"
+  "homepage": "https://github.com/joeelsey/reminder_app_tutorial",
+  "dependencies": {
+    "ejs": "^2.2.2",
+    "express": "^4.11.1",
+    "express-promise": "^0.4.0",
+    "moment": "^2.9.0",
+    "mongoose": "^3.8.21",
+    "twilio": "^1.10.0"
+  }
 }

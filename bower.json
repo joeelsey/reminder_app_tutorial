@@ -14,5 +14,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "ember": "~1.9.1",
+    "ember-data": "~0.0.14",
+    "moment": "~2.9.0"
+  }
 }
