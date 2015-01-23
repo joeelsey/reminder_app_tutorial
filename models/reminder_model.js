@@ -7,7 +7,7 @@ var reminderSchema = mongoose.Schema({
   title: String,
   isCompleted: Boolean,
   end: {
-    type: Date, default: moment().add('hours', 1).toDate()
+    type: Date, default: moment().add('hours').toDate()
   }
 });
 
