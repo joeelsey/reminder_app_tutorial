@@ -12,6 +12,10 @@ module.exports = function(app) {
     res.render('index.html');
   });
 
+  app.get('/timers', function(req, res) {
+    res.json({timers: Reminder.find().select('-__v')});
+  })
+
   app.post('/timers', function(req, res) {
     var reminder = new Reminder();
     reminder.title = req.body.timer.title;
