@@ -19,6 +19,7 @@ module.exports = function(app) {
   app.post('/timers', function(req, res) {
     var reminder = new Reminder();
     reminder.title = req.body.timer.title;
+    //format is Day Mon Day# Year Time in 24hr
     reminder.end = new Date(req.body.timer.end);
     reminder.save(function(err, data) {
       if (err) return res.status(500).send(err);
