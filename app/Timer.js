@@ -1,0 +1,1 @@
+Timer = Ember.Application.create();

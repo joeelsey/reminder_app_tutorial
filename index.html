@@ -9,17 +9,32 @@
     <script src="bower_components/ember/ember.js"></script>
     <script src="bower_components/ember-data/ember-data.js"></script>
     <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/handlebars.handlebars.js"></script>
+
+  </head>
+  <body>
+    <script type="text/x-handlebars" data-template-name="timers/index">
+      <ul id="timer-list">
+        {{#each itemController="timer"}}
+        <li {{bind-attr class="isCompleted:completed isEditing">
+
+        </li>
+      </ul>
+    </script>
+
+
+
 
     <script type="text/x-handlebars" data-template-name="timers">
       <h1>reminders</h1>
-        <section class="cf">
+      <section class="cf">
+        <header id="header">
+          {{input type="text" id="new-timer" placeholder="What is your reminder?" value=newTitle action="createTimer"}}
+        </header>
+        <section id="main">
+          {{outlet}}
         </section>
-          <footer id="info">
-            <p>Double-click to edit a reminder</p>
-          </footer>
+      </section>
     </script>
-  </head>
-  <body>
-    <div></div>
   </body>
 </html>
