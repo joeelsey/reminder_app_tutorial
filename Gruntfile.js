@@ -8,9 +8,26 @@ module.exports = function(grunt) {
   grunt.initConfig({
     jscs: {
       src: ['models/**/*.js', 'test/**/*.js', 'server.js', 'cron.js'],
-      options: 'jscsrc'
+      options: '.jscsrc'
     },
 
-    
-  })
-}
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      src: ['models/**/*.js', 'test/**/*.js', 'server.js', 'cron.js'],
+    },
+
+    simplemocha: {
+      options: {
+        timeout: 3000,
+        ignoreLeaks: true,
+        reporter: 'tap'
+      },
+      src: ['test/*.js']
+    }
+  });
+
+  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha']);
+  grunt.registerTask('default', ['test']);
+};
