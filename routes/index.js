@@ -16,6 +16,14 @@ module.exports = function(app) {
     res.json({timers: Reminder.find().select('-__v')});
   })
 
+  app.get('/timers/:id', function(req, res) {
+    Reminder.findById(req.params.id, function(err, timer) {
+      if (err) return res.status(500).send(err);
+      if (!timer) return res.send({msg: 'timer not found'});
+      res.json(timer);
+    });
+  });
+
   app.post('/timers', function(req, res) {
     var reminder = new Reminder();
     reminder.title = req.body.timer.title;
