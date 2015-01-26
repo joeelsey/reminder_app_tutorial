@@ -47,7 +47,7 @@ module.exports = function(app) {
   });
 
   app.delete('/timers/:id', function(req, res) {
-    Reminder.findById(req.params.id, function(err, reminder) {
+    Reminder.findByIdAndRemove(req.params.id, function(err, reminder) {
       if (err) return res.status(500).send(err);
       if (!reminder) return res.send({msg: 'no reminder found'});
       res.json({msg: 'reminder deleted'});
