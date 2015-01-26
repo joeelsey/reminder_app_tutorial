@@ -23,6 +23,7 @@ module.exports = function(Reminder) {
             if (err) return console.log('error: ', err);
             if (!message) return console.log({msg: 'no message'});
             console.log(message);
+            console.log(message.date_created);
           });
         }
       });
