@@ -28,6 +28,7 @@ module.exports = function(Reminder) {
       });
     });
   }
+
   setInterval(checkReminders, 60000);
   checkReminders();
   console.log('check cron jobs');
