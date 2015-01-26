@@ -53,7 +53,7 @@ describe('test the reminder api', function() {
     });
   });
 
-  it('should get message', function(done) {
+  it('should get all messages', function(done) {
     chai.request(localhost)
     .get('/timers')
     .end(function(err, res) {
@@ -63,15 +63,35 @@ describe('test the reminder api', function() {
     });
   });
 
+  it('should get one message', function(done) {
+    chai.request(localhost)
+    .get('/timers/' + id)
+    .end(function(err, res) {
+      expect(err).to.eql(null);
+      expect(res.body.id).to.equal(id)
+      expect(res.body).to.have.property('title');
+      done();
+    });
+  });
+
   it('should change the message', function(done) {
     chai.request(localhost)
-    .put('/timers' + id)
+    .put('/timers/' + id)
     .send(altmessage)
     .end(function(err, res) {
       expect(err).to.eql(null);
-      expect(res.body)
-    })
-  })
+      expect(res.body.title).to.equal('This is Message Three');
+      done();
+    });
+  });
 
-
-})
+  it('should delete the message', function(done) {
+    chai.request(localhost)
+    .delete('/timers/' + id)
+    .end(function(err, res) {
+      expect(err).to.eql(null);
+      expect(res.body.msg).to.equal('reminder deleted');
+      done();
+    });
+  });
+});
