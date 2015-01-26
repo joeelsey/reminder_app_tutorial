@@ -30,13 +30,13 @@ module.exports = function(app) {
   });
 
   app.put('/timers/:id', function(req, res) {
-    Reminder.findById({_id: req.params.id}, function(err, reminder) {
+    Reminder.findById(req.params.id, function(err, reminder) {
       if (err) return res.status(500).send(err);
       if (!reminder) return res.send({msg: 'no reminder found'});
 
       reminder.title = req.body.timer.title;
       reminder.isCompleted = req.body.timer.isCompleted;
-      reminder.end = req.body.time.end;
+      reminder.end = req.body.timer.end;
       reminder.save(function(err, data) {
         if (err) return res.status(500).send(err);
         if (!data) return res.send({msg: 'data did not save'});
@@ -47,7 +47,7 @@ module.exports = function(app) {
   });
 
   app.delete('/timers/:id', function(req, res) {
-    Reminder.findById({_id: req.params.id}, function(err, reminder) {
+    Reminder.findById(req.params.id, function(err, reminder) {
       if (err) return res.status(500).send(err);
       if (!reminder) return res.send({msg: 'no reminder found'});
       res.json({msg: 'reminder deleted'});
