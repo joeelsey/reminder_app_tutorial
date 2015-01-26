@@ -50,6 +50,7 @@ describe('test the reminder api', function() {
       console.log(id);
       expect(err).to.eql(null);
       expect(res.body).to.have.property('timer');
+      done();
     });
   });
 
@@ -68,7 +69,7 @@ describe('test the reminder api', function() {
     .get('/timers/' + id)
     .end(function(err, res) {
       expect(err).to.eql(null);
-      expect(res.body.id).to.equal(id)
+      expect(res.body.id).to.equal(id);
       expect(res.body).to.have.property('title');
       done();
     });

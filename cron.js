@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = function(Reminder) {
-  var client = require('twilio')(account, authToken);
   var account = process.env.TWILIO_ACCOUNT_SID;
   var authToken = process.env.TWILIO_AUTH_TOKEN;
-  var Reminder = require('./models/reminder_model');
+  var client = require('twilio')(account, authToken);
+  //var Reminder = require('./models/reminder_model');
 
   function checkReminders() {
     Reminder.find({'end': { $lt: Date.now()}}, function(err, reminders) {
@@ -28,7 +28,7 @@ module.exports = function(Reminder) {
         }
       });
     });
-  };
+  }
   setInterval(checkReminders, 60000);
   checkReminders();
   console.log('check cron jobs');
