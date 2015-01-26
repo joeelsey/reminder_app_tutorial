@@ -4,7 +4,6 @@ module.exports = function(Reminder) {
   var account = process.env.TWILIO_ACCOUNT_SID;
   var authToken = process.env.TWILIO_AUTH_TOKEN;
   var client = require('twilio')(account, authToken);
-  //var Reminder = require('./models/reminder_model');
 
   function checkReminders() {
     Reminder.find({'end': { $lt: Date.now()}}, function(err, reminders) {
