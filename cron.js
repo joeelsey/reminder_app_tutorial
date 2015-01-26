@@ -8,19 +8,22 @@ module.exports = function(Reminder) {
 
   function checkReminders() {
     Reminder.find({'end': { $lt: Date.now()}}, function(err, reminders) {
-      if (err) return res.status(500).send(err);
-      if (!reminders) return res.send({msg: 'nothing found'});
+      console.log('finding jobs');
+      //console.log(reminders);
+      if (err) return console.log('error: ', err);
+      if (!reminders) return console.log('reminder not found');
 
       reminders.forEach(function(reminder) {
+        console.log('sending reminders');
         if(!reminder.isCompleted) {
           client.sms.messages.create({
             body: reminder.title,
-            to: process.env.MOBILE,
+            to: '18474775286',
             from: process.env.TWILIO_NUMBER
           }, function(err, message) {
-            if (err) return res.status(500).send(err);
-            if (!message) return res.send({msg: 'no message'});
-            res.json(message);
+            if (err) return console.log('error: ', err);
+            if (!message) return console.log({msg: 'no message'});
+            console.log(message);
           });
         }
       });
@@ -29,4 +32,5 @@ module.exports = function(Reminder) {
 
   setInterval(checkReminders, 60000);
   checkReminders();
+  console.log('check cron jobs');
 };
