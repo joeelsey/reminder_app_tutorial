@@ -8,9 +8,10 @@ Timers.TimersController = Ember.ArrayController.extend({
       var timer = this.store.createRecord('timer', {
         title: title,
         isCompleted: false,
-        end: moment().add('hours').toDate()
+        end: moment().add(1, 'hours').toDate()
       });
-
+      console.log(title);
+      console.log(timer);
       this.set('newTitle', '');
       timer.save();
     }
