@@ -9,6 +9,7 @@ module.exports = function(app) {
   // });
 
   app.get('/', function(req, res) {
+    console.log('front page');
     res.render('index.html');
   });
 

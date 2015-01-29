@@ -2,3 +2,4 @@ bower_components/
 node_modules/
 db/
 app/.DS_Store
+public/
