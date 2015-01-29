@@ -5,7 +5,7 @@
     <title>Reminders</title>
   </head>
   <body>
-
+  
     <script type="text/x-handlebars" data-template-name="timers">
       <h1>Reminders</h1>
       <section class="cf">
@@ -20,10 +20,10 @@
         <p>Double-click to edit a reminder</p>
       </footer>
     </script>
-
-    <script type="text/x-handlebars" data-template-name="timers/index">
+  
+    <script type="text/x-handlebars" data-template-name="timer">
       <ul id="timer-list">
-        {{#each itemController="timer"}}
+        {{#each item in itemController="timer"}}
           <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
             {{#if isEditing}}
               {{edit-timer class="edit" value="title" insert-newLine="acceptChanges" placeholder="Description"}}
