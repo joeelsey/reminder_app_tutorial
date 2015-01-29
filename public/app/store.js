@@ -1,4 +1,5 @@
-Timer.ApplicationSerializer = DS.RESTSerializer.extend({
+Timers.ApplicationSerializer = DS.LSSerializer.extend();
+Timers.ApplicationSerializer = DS.RESTSerializer.extend({
   primaryKey: '_id'
 });
-Timer.ApplicationAdapter = DS.LSAdapter.extend();
+Timers.ApplicationAdapter = DS.LSAdapter.extend();
