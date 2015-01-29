@@ -30,5 +30,24 @@
         <p>Double-click to edit a reminder</p>
       </footer>
     </script>
+
+    <script type="text/x-handlebars" data-template-name="timers/index">
+      <ul id="timer-list">
+        {{#each itemController="timer"}}
+          <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+            {{#if isEditing}}
+              {{edit-timer class="edit" value="title" insert-newLine="acceptChanges" placeholder="Description"}}
+              {{input class="edit" value=formattedEnd focus-out="acceptChanges" insert-newLine="acceptChanges" placeholder="End: yyyy-mm-dd hh:mm"}}
+            {{else}}
+              {{input type="checkbox" checked=isCompleted class="toggle"}}
+              <label {{action "editTimer" on="doubleClick"}}>
+                {{title}} <span class="pull-right time-until">{{from}}</span>
+              </label>
+              <button class="destroy" {{action "removeTimer"}}></button>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </script>
   </body>
 </html>

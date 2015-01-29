@@ -1,1 +1,1 @@
-Timer = Ember.Application.create();
+Timers = Ember.Application.create();
