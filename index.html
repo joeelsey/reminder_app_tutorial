@@ -11,30 +11,24 @@
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/handlebars.handlebars.js"></script>
 
+    <script src="app/Timer.js"></script>
+    <script src="app/router.js"></script>
+
   </head>
   <body>
-    <script type="text/x-handlebars" data-template-name="timers/index">
-      <ul id="timer-list">
-        {{#each itemController="timer"}}
-        <li {{bind-attr class="isCompleted:completed isEditing">
-
-        </li>
-      </ul>
-    </script>
-
-
-
-
     <script type="text/x-handlebars" data-template-name="timers">
-      <h1>reminders</h1>
+      <h1>Reminders</h1>
       <section class="cf">
         <header id="header">
-          {{input type="text" id="new-timer" placeholder="What is your reminder?" value=newTitle action="createTimer"}}
+          {{input type="text" id="new-timer" placeholder="What do you need to remember?" value=newTitle action="createTimer"}}
         </header>
-        <section id="main">
-          {{outlet}}
-        </section>
+        <main id="main" role="main">
+        {{outlet}}
+        </main>
       </section>
+      <footer id="info">
+        <p>Double-click to edit a reminder</p>
+      </footer>
     </script>
   </body>
 </html>
