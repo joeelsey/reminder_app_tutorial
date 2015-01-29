@@ -21,9 +21,9 @@
       </footer>
     </script>
   
-    <script type="text/x-handlebars" data-template-name="timer">
+    <script type="text/x-handlebars" data-template-name="timers/index">
       <ul id="timer-list">
-        {{#each item in itemController="timer"}}
+        {{#each time in timers}}
           <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
             {{#if isEditing}}
               {{edit-timer class="edit" value="title" insert-newLine="acceptChanges" placeholder="Description"}}
@@ -56,5 +56,6 @@
     <script src="app/models/timer.js"></script>
 
     <script src="app/routes/timers.js"></script>
+    <script src="app/routes/timers-index.js"></script>
   </body>
 </html>
