@@ -8,3 +8,5 @@ being done in this tutorial, so I'm adjusting certain parts to work the way I wa
 see if that's a good or a bad thing.
 
 Edit:  So far I have the basic functionality of the app.  I can create a message and have twilio text my cell phone.  I'm currently writing back end tests for the tutorial.
+
+Edit: Working out of a public folder which won't be uploaded to git.  Once I get through making the dependencies work with each other, ember views doesn't like jquery at the moment, I will create a browserify for the public folder so a user could easily create their own.
