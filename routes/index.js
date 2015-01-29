@@ -4,11 +4,11 @@ module.exports = function(app) {
 
   var Reminder = require('../models/reminder_model');
 
-  app.get('/', function(req, res) {
-    res.json('Hello World');
-  });
+  // app.get('/', function(req, res) {
+  //   res.json('Hello World');
+  // });
 
-  app.get('/index', function(req, res) {
+  app.get('/', function(req, res) {
     res.render('index.html');
   });
 

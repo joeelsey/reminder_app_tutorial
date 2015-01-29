@@ -11,8 +11,9 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/reminder_dev');
 
 app.engine('html', require('ejs').renderFile);
 app.use(require('express-promise')());
-app.use(express.static(process.cwd() + '/public'));
 app.use(bodyparser.json());
+
+app.use(express.static(__dirname + '/index'));
 
 require('./routes/index')(app);
 require('./cron')(Reminder);
