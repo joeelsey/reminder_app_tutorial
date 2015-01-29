@@ -13,7 +13,7 @@ app.engine('html', require('ejs').renderFile);
 app.use(require('express-promise')());
 app.use(bodyparser.json());
 
-app.use(express.static(__dirname + '/index'));
+app.use(express.static(process.cwd() + '/index'));
 
 require('./routes/index')(app);
 require('./cron')(Reminder);
