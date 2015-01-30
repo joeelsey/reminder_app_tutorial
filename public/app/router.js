@@ -3,8 +3,6 @@ Timers.Router.map(function() {
     this.route('active');
     this.route('completed');
   });
-  this.resource('timers');
-  this.resource('timers-index');
 });
 
 
