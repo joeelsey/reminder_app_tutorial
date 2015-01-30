@@ -1,5 +1,5 @@
-Timers.TimersRoute = Ember.Route.extend({
+Reminder.TimersRoute = Ember.Route.extend({
   model: function() {
-    return this.store.find('timer');
+    return this.store.find('time');
   }
 });

@@ -1,1 +1,1 @@
-Timers.Store = DS.Store.extend();
+Reminder.Store = DS.Store.extend();

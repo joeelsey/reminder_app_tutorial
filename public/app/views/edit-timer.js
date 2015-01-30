@@ -1,4 +1,4 @@
-Timers.EditTimerView = Ember.TextField.extend({
+Reminder.EditTimerView = Ember.TextField.extend({
   didInsertElement: function() {
     this.$().focus();
   }

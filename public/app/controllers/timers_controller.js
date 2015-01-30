@@ -1,11 +1,11 @@
-Timers.TimersController = Ember.ArrayController.extend({
+Reminder.TimeController = Ember.ArrayController.extend({
   actions: {
     createTimer: function() {
       //console.log('createTimer');
       var title = this.get('newTitle');
-      if(!title.trim()) {
-        return;
-      }
+        // if(!title.trim()) {
+        //   return;
+        // }
       //console.log('createTimer');
       var timer = this.store.createRecord('timer', {
         title: title,

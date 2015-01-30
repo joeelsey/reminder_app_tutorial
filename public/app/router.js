@@ -1,5 +1,5 @@
-Timers.Router.map(function() {
-  this.resource('timers', {path: '/'}, function() {
+Reminder.Router.map(function() {
+  this.resource('time', {path: '/'}, function() {
     this.route('active');
     this.route('completed');
   });

@@ -1,4 +1,4 @@
-Timers.TimerController = Ember.ObjectController.extend({
+Reminder.TimerController = Ember.ObjectController.extend({
   isCompleted: function(key, value) {
     var model = this.get('model');
     if (typeof value === 'undefined') {
